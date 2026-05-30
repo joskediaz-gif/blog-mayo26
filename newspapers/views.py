@@ -4,8 +4,10 @@ from django.views.generic import (ListView,
                                   DetailView, 
                                   CreateView, 
                                   UpdateView,
+                                    DeleteView
                                   )
                                   
+from django.urls import reverse_lazy
 
 # Create your views here.
 class BloglistView(ListView):
@@ -25,3 +27,7 @@ class BlogUpdateView(UpdateView):
     model = Blog
     template_name = 'post-uptate.html'
     fields = ['title', 'content']
+class BlogDeleteView(DeleteView):
+    model = Blog
+    template_name = 'post-delete.html'
+    success_url = reverse_lazy('post-list')
