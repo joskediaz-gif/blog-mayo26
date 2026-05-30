@@ -4,6 +4,7 @@
     <p><strong>Autor:</strong> {{ post.author.username }}</p>
     <p><strong>Fecha de creacion:</strong> {{ post.created_at }}</p>
     <div>
-        {{ post.content }}
+        {{ blog.content }}
     </div>
+    <a href="{% url 'blog-update' blog.pk %}">Editar publicación</a>
 {% endblock %}
