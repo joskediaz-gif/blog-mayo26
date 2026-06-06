@@ -14,12 +14,13 @@
         <!-- login y log out -->
         {% if user.is_authenticated %}
             <p>Hola, {{ user.username }}!</p>
-            <from method="post" action="{% url 'logout'%}">
+            <form method="post" action="{% url 'logout' %}">
                 {% csrf_token %}
                 <button type="submit">Cerrar Sesión</button>
-            </from>
-            {else %}
+            </form>
+        {% else %}
             <a href="{% url 'login' %}">Iniciar Sesión</a>
+            <a href="{% url 'signup' %}">Registrarse</a>
         {% endif %}  
     </header>
     {% block content %}
